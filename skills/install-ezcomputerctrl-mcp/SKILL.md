@@ -25,7 +25,7 @@ Complete all of the following:
 3. Create or update `.runtime/ezcomputerctrl.env.ps1`.
 4. Configure a real OpenAI-compatible VLM endpoint.
 5. Start the service with `scripts/start_ezcomputerctrl_hidden.vbs`.
-6. Confirm `.runtime/ezcomputerctrl.pid` exists.
+6. Confirm `.runtime/ezcomputerctrl.guardian.pid` and `.runtime/ezcomputerctrl.pid` exist.
 7. Configure the current host client to use `http://127.0.0.1:<port>/mcp`.
 8. Tell the user how to stop the service.
 

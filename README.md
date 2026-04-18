@@ -88,11 +88,19 @@ pip install -e .
 cscript //nologo scripts\start_ezcomputerctrl_hidden.vbs
 ```
 
+该入口默认以隐藏窗口启动保活守护进程。
+
+1. 守护进程 PID 会写入 `.runtime/ezcomputerctrl.guardian.pid`。
+2. 当前业务进程 PID 会写入 `.runtime/ezcomputerctrl.pid`。
+3. 只要没有执行停止脚本，且当前 Windows 会话未结束，守护进程会在业务进程退出后自动重新拉起。
+
 停止后台服务：
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts\stop_ezcomputerctrl.ps1
 ```
+
+停止脚本会写入停止信号、结束当前业务进程，并清理 `.runtime/` 中的运行期 PID 文件。
 
 直接执行启动脚本：
 
@@ -100,7 +108,13 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts\stop_ezcomputerctrl.
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts\run_ezcomputerctrl_http.ps1
 ```
 
-启动脚本会在后台拉起 MCP 服务，并将进程 PID 写入 `.runtime/ezcomputerctrl.pid`。
+直接执行保活模式：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\run_ezcomputerctrl_http.ps1 -KeepAlive
+```
+
+单次启动模式只会拉起一次 MCP 服务；保活模式会额外维护守护进程 PID 文件 `.runtime/ezcomputerctrl.guardian.pid`。
 
 ## MCP 地址
 

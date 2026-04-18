@@ -88,11 +88,19 @@ Start in hidden background mode:
 cscript //nologo scripts\start_ezcomputerctrl_hidden.vbs
 ```
 
+This entry now starts the keepalive guardian in hidden mode by default.
+
+1. The guardian PID is written to `.runtime/ezcomputerctrl.guardian.pid`.
+2. The current service PID is written to `.runtime/ezcomputerctrl.pid`.
+3. Until you run the stop script or the current Windows session ends, the guardian will restart the service whenever the service process exits.
+
 Stop the background service:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts\stop_ezcomputerctrl.ps1
 ```
+
+The stop script writes a stop signal, stops the current service process, and cleans the runtime PID files in `.runtime/`.
 
 Run the launch script directly:
 
@@ -100,7 +108,13 @@ Run the launch script directly:
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts\run_ezcomputerctrl_http.ps1
 ```
 
-The launch script starts the MCP service in the background and writes the PID to `.runtime/ezcomputerctrl.pid`.
+Run the launch script in keepalive mode:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\run_ezcomputerctrl_http.ps1 -KeepAlive
+```
+
+Single-start mode launches the MCP service once. Keepalive mode also maintains `.runtime/ezcomputerctrl.guardian.pid` for the guardian process.
 
 ## MCP Endpoint
 
