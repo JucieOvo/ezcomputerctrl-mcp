@@ -142,3 +142,4 @@ If the local port changes, update the endpoint accordingly.
 2. The system depends on a real desktop environment and a real VLM service.
 3. This is a vision-driven control layer, not a zero-error automation guarantee.
 4. The public tool surface is intentionally small to prioritize stability.
+5. If this tool has been running and you plan to launch a game protected by ring-0 anti-cheat systems such as Tencent ACE, there may be a risk of account penalties or bans. Fully close this tool and reboot the computer before starting such games. The author and community provide no guarantee and accept no responsibility for any game account bans, restrictions, or other losses related to the use of this tool.
