@@ -118,12 +118,50 @@ Target connection settings:
 1. transport: `streamable-http`
 2. URL: `http://127.0.0.1:<port>/mcp`
 
+Common client examples:
+
+### OpenCode
+
 ```json
 {
-    "ezcomputerctrl": {
-        "type": "remote",
-        "url": "http://127.0.0.1:<port>/mcp",
-        "enabled": true
+    "mcp": {
+        "ezcomputerctrl": {
+            "type": "remote",
+            "url": "http://127.0.0.1:<port>/mcp",
+            "enabled": true
+        }
+    }
+}
+```
+
+### Claude CLI
+
+```bash
+claude mcp add --transport http ezcomputerctrl http://127.0.0.1:<port>/mcp
+```
+
+### Codex
+
+Global config file:
+
+`~/.codex/config.toml`
+
+```toml
+[mcp_servers.ezcomputerctrl]
+url = "http://127.0.0.1:<port>/mcp"
+enabled = true
+```
+
+### OpenClaw
+
+```json
+{
+    "mcpServers": {
+        "ezcomputerctrl": {
+            "type": "remote",
+            "url": "http://127.0.0.1:<port>/mcp",
+            "enabled": true
+        }
     }
 }
 ```
