@@ -118,6 +118,16 @@ Target connection settings:
 1. transport: `streamable-http`
 2. URL: `http://127.0.0.1:<port>/mcp`
 
+```json
+{
+    "ezcomputerctrl": {
+        "type": "remote",
+        "url": "http://127.0.0.1:<port>/mcp",
+        "enabled": true
+    }
+}
+```
+
 Use the host client's real MCP configuration mechanism and write the equivalent configuration there.
 
 ## Step 8: Stop command
