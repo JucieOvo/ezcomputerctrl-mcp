@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "ezcomputerctrl"
 version = "0.1.0"
-description = "面向 GUI 语义执行的第一阶段最小闭环实现"
+description = "一个面向 Windows 桌面 GUI 控制、视觉优先的 MCP，让智能体能够操作语义对象，而不是脆弱的屏幕坐标"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

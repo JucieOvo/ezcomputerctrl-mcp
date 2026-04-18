@@ -44,9 +44,7 @@ The working directory should contain:
 1. `pyproject.toml`
 2. `src/`
 3. `scripts/`
-4. `.claude/skills/install-ezcomputerctrl-mcp/SKILL.md`
-
-If those files are instead under `release/`, treat `release/` as the repository root for this setup flow.
+4. `skills/install-ezcomputerctrl-mcp/SKILL.md`
 
 ## Step 2: Install dependencies
 
